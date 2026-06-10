@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Eighty Eight Hotel in Koronadal City offers elegant rooms, event venues, and warm hospitality for business and leisure travelers.">
+    <title>Eighty Eight Hotel | Koronadal City</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-white: #fbf7ef;
+            --ivory: #fffdf8;
+            --sand: #e9dcc8;
+            --linen: #f3eadc;
+            --gold: #b89556;
+            --gold-dark: #8c6b34;
+            --charcoal: #262420;
+            --soft-black: #12110f;
+            --taupe: #74685a;
+            --brown: #6b4b32;
+            --line: rgba(38, 36, 32, 0.13);
+            --shadow: 0 24px 70px rgba(32, 27, 20, 0.14);
+            --radius: 8px;
+            --container: min(1160px, calc(100% - 36px));
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--warm-white);
+            color: var(--charcoal);
+            font-family: "Inter", Arial, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: var(--container);
+            margin-inline: auto;
+        }
+
+        .eyebrow {
+            color: var(--gold-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .section-kicker {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .section-kicker::after {
+            width: 54px;
+            height: 1px;
+            background: var(--gold);
+            content: "";
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-weight: 700;
+            line-height: 0.98;
+        }
+
+        h1 {
+            max-width: 950px;
+            color: var(--ivory);
+            font-size: clamp(4rem, 12vw, 10.5rem);
+            letter-spacing: 0;
+        }
+
+        h2 {
+            max-width: 760px;
+            color: var(--soft-black);
+            font-size: clamp(2.8rem, 6.8vw, 5.8rem);
+        }
+
+        h3 {
+            color: var(--soft-black);
+            font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+        }
+
+        p {
+            color: var(--taupe);
+            font-size: clamp(1rem, 1.25vw, 1.1rem);
+        }
+
+        .btn {
+            position: relative;
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.84rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            padding: 13px 22px;
+            text-transform: uppercase;
+            transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, color 220ms ease;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--soft-black);
+        }
+
+        .btn-primary:hover {
+            background: #caa76a;
+        }
+
+        .btn-secondary {
+            border-color: rgba(255, 255, 255, 0.48);
+            color: var(--ivory);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.75);
+        }
+
+        .site-nav {
+            position: fixed;
+            z-index: 50;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+        }
+
+        .site-nav.scrolled,
+        .site-nav.nav-open {
+            border-bottom: 1px solid rgba(38, 36, 32, 0.1);
+            background: rgba(251, 247, 239, 0.94);
+            box-shadow: 0 18px 50px rgba(38, 36, 32, 0.08);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            display: flex;
+            min-height: 78px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+        }
+
+        .brand {
+            display: grid;
+            color: var(--ivory);
+            font-size: 0.86rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .brand span {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            margin-top: 4px;
+        }
+
+        .site-nav.scrolled .brand,
+        .site-nav.nav-open .brand {
+            color: var(--soft-black);
+        }
+
+        .site-nav.scrolled .brand span,
+        .site-nav.nav-open .brand span {
+            color: var(--taupe);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(16px, 2.5vw, 34px);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            transition: color 180ms ease;
+        }
+
+        .site-nav.scrolled .nav-links a,
+        .site-nav.nav-open .nav-links a {
+            color: var(--charcoal);
+        }
+
+        .nav-links a:hover,
+        .site-nav.scrolled .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--ivory);
+            cursor: pointer;
+        }
+
+        .site-nav.scrolled .menu-toggle,
+        .site-nav.nav-open .menu-toggle {
+            border-color: var(--line);
+            color: var(--charcoal);
+        }
+
+        .menu-toggle span,
+        .menu-toggle::before,
+        .menu-toggle::after {
+            width: 18px;
+            height: 2px;
+            border-radius: 2px;
+            background: currentColor;
+            content: "";
+            transition: transform 200ms ease, opacity 200ms ease;
+        }
+
+        .menu-toggle {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-toggle.active span {
+            opacity: 0;
+        }
+
+        .menu-toggle.active::before {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.active::after {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .hero {
+            position: relative;
+            display: grid;
+            min-height: 96vh;
+            align-items: end;
+            overflow: hidden;
+            padding: 120px 0 34px;
+            background:
+                linear-gradient(90deg, rgba(18, 17, 15, 0.82), rgba(18, 17, 15, 0.38) 52%, rgba(18, 17, 15, 0.18)),
+                url("https://scontent.fmnl17-7.fna.fbcdn.net/v/t39.30808-6/502631652_4146425432264509_8519687002067877053_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1536&ctp=s2048x1536&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHUdaK6Sp7TEkco7VHjBmLUOk194cYzFAQ6TX3hxjMUBCrtZaZn4D-fUs_sbrO1ZJNZWS93Kwa4kCA6A9cJfD0-&_nc_ohc=bahlh-qVGi4Q7kNvwEoaXjk&_nc_oc=AdotgVLCO5K-_JpeMaHEuFTVfmfZ37KYKhi6NWWPdlU9JukjWz9s9mqoctQZcIWfB1Y&_nc_zt=23&_nc_ht=scontent.fmnl17-7.fna&_nc_gid=9AmESRslpKljP8KplIThow&_nc_ss=7b2a8&oh=00_Af-kmsgATuULZl0ZvrET5HH8mI2FkeRY0vtuWWJmzzfN4w&oe=6A2EFA24") center/cover;
+            color: var(--ivory);
+        }
+
+        .hero::after {
+            position: absolute;
+            inset: auto 0 0;
+            height: 210px;
+            background: linear-gradient(0deg, rgba(18, 17, 15, 0.7), transparent);
+            content: "";
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            gap: 26px;
+            padding-bottom: 70px;
+        }
+
+        .hero-copy {
+            max-width: 675px;
+            color: rgba(255, 253, 248, 0.82);
+            font-size: clamp(1.06rem, 1.8vw, 1.36rem);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-panel {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.1fr repeat(3, 0.75fr);
+            align-items: stretch;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 253, 248, 0.92);
+            box-shadow: var(--shadow);
+            color: var(--charcoal);
+        }
+
+        .hero-panel .panel-item {
+            min-height: 112px;
+            border-right: 1px solid var(--line);
+            padding: 24px;
+        }
+
+        .hero-panel .panel-item:last-child {
+            border-right: 0;
+            background: var(--soft-black);
+            color: var(--ivory);
+        }
+
+        .panel-label {
+            color: var(--gold-dark);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .hero-panel strong {
+            display: block;
+            margin-top: 8px;
+            color: inherit;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            line-height: 1;
+        }
+
+        .section {
+            padding: clamp(74px, 9vw, 132px) 0;
+        }
+
+        .section-alt {
+            background: var(--ivory);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+            gap: clamp(36px, 7vw, 92px);
+            align-items: center;
+        }
+
+        .lead {
+            max-width: 660px;
+            margin-top: 22px;
+            color: var(--taupe);
+            font-size: clamp(1.08rem, 1.45vw, 1.25rem);
+        }
+
+        .about-media {
+            position: relative;
+            display: grid;
+            grid-template-columns: 0.74fr 1fr;
+            gap: 18px;
+            align-items: end;
+        }
+
+        .about-media img {
+            width: 100%;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+
+        .about-media img:first-child {
+            height: 420px;
+        }
+
+        .about-media img:last-child {
+            height: 540px;
+            margin-top: 74px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            margin-top: 64px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .stat {
+            background: var(--warm-white);
+            padding: 30px 24px;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--soft-black);
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: clamp(2.25rem, 4vw, 4rem);
+            line-height: 1;
+        }
+
+        .stat span {
+            color: var(--taupe);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 34px;
+            margin-bottom: 44px;
+        }
+
+        .section-heading p {
+            max-width: 470px;
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .room-card {
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--ivory);
+            box-shadow: 0 12px 36px rgba(32, 27, 20, 0.07);
+            transition: transform 240ms ease, box-shadow 240ms ease;
+        }
+
+        .room-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-6px);
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            transition: transform 500ms ease;
+        }
+
+        .room-card:hover img {
+            transform: scale(1.045);
+        }
+
+        .room-body {
+            padding: 26px;
+        }
+
+        .room-body p {
+            margin-top: 12px;
+        }
+
+        .room-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pill {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--brown);
+            font-size: 0.76rem;
+            font-weight: 700;
+            padding: 7px 11px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .feature {
+            min-height: 245px;
+            background: var(--warm-white);
+            padding: 28px;
+            transition: background 220ms ease, transform 220ms ease;
+        }
+
+        .feature:hover {
+            background: var(--ivory);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            display: grid;
+            width: 46px;
+            height: 46px;
+            place-items: center;
+            border: 1px solid rgba(184, 149, 86, 0.35);
+            border-radius: 999px;
+            color: var(--gold-dark);
+            font-size: 1.35rem;
+            margin-bottom: 38px;
+        }
+
+        .feature p {
+            margin-top: 12px;
+        }
+
+        .events {
+            background:
+                linear-gradient(90deg, rgba(18, 17, 15, 0.88), rgba(18, 17, 15, 0.56)),
+                url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2200&q=85") center/cover fixed;
+            color: var(--ivory);
+        }
+
+        .events h2,
+        .events h3 {
+            color: var(--ivory);
+        }
+
+        .events p {
+            color: rgba(255, 253, 248, 0.75);
+        }
+
+        .event-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+            gap: clamp(38px, 7vw, 86px);
+            align-items: center;
+        }
+
+        .event-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .event-item {
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 24px;
+            backdrop-filter: blur(12px);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.8fr 0.95fr;
+            grid-auto-rows: 230px;
+            gap: 16px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 100%;
+            cursor: zoom-in;
+            object-fit: cover;
+            transition: filter 220ms ease, transform 220ms ease;
+        }
+
+        .gallery-grid img:hover {
+            filter: brightness(0.86);
+            transform: scale(1.01);
+        }
+
+        .gallery-grid img:nth-child(1),
+        .gallery-grid img:nth-child(6) {
+            grid-row: span 2;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.78fr) minmax(320px, 1.22fr);
+            gap: 34px;
+            align-items: stretch;
+        }
+
+        .contact-card,
+        .map-card {
+            border: 1px solid var(--line);
+            background: var(--ivory);
+            box-shadow: 0 12px 38px rgba(32, 27, 20, 0.07);
+        }
+
+        .contact-card {
+            display: grid;
+            align-content: center;
+            gap: 28px;
+            padding: clamp(30px, 5vw, 54px);
+        }
+
+        .contact-detail {
+            display: grid;
+            gap: 4px;
+        }
+
+        .contact-detail span {
+            color: var(--gold-dark);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .contact-detail a,
+        .contact-detail p {
+            color: var(--charcoal);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .map-card {
+            min-height: 520px;
+            overflow: hidden;
+        }
+
+        .map-card iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            border: 0;
+            filter: saturate(0.8) contrast(1.05);
+        }
+
+        .footer {
+            background: var(--soft-black);
+            color: var(--ivory);
+            padding: 54px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 32px;
+            align-items: end;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+            padding-bottom: 34px;
+        }
+
+        .footer h2 {
+            max-width: 560px;
+            color: var(--ivory);
+            font-size: clamp(2.4rem, 5vw, 4.7rem);
+        }
+
+        .footer p,
+        .footer a {
+            color: rgba(255, 253, 248, 0.72);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 28px;
+            font-size: 0.88rem;
+        }
+
+        .modal {
+            position: fixed;
+            z-index: 100;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: rgba(18, 17, 15, 0.88);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 180ms ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal img {
+            width: min(92vw, 1100px);
+            max-height: 86vh;
+            object-fit: contain;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 700ms ease, transform 700ms ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 78px;
+                left: 18px;
+                right: 18px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                border: 1px solid var(--line);
+                background: rgba(255, 253, 248, 0.98);
+                box-shadow: var(--shadow);
+                padding: 12px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a,
+            .site-nav.scrolled .nav-links a,
+            .site-nav.nav-open .nav-links a {
+                display: block;
+                color: var(--charcoal);
+                padding: 14px;
+            }
+
+            .hero {
+                min-height: 92vh;
+            }
+
+            .hero-panel,
+            .intro-grid,
+            .event-layout,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-panel .panel-item {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .stats,
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .room-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .room-card img {
+                height: 410px;
+            }
+
+            .section-heading {
+                display: grid;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            :root {
+                --container: min(100% - 28px, 1160px);
+            }
+
+            .nav-inner {
+                min-height: 70px;
+            }
+
+            .nav-links {
+                top: 70px;
+            }
+
+            .hero {
+                min-height: 100svh;
+                padding-top: 96px;
+            }
+
+            .hero-content {
+                padding-bottom: 44px;
+            }
+
+            .hero-actions {
+                display: grid;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .about-media,
+            .stats,
+            .feature-grid,
+            .gallery-grid,
+            .footer-grid,
+            .footer-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .about-media img:first-child,
+            .about-media img:last-child,
+            .room-card img,
+            .gallery-grid img,
+            .gallery-grid img:nth-child(1),
+            .gallery-grid img:nth-child(6) {
+                height: 270px;
+                grid-row: auto;
+                margin-top: 0;
+            }
+
+            .map-card,
+            .map-card iframe {
+                min-height: 360px;
+            }
+
+            .footer-bottom {
+                display: grid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav" aria-label="Primary navigation">
+        <div class="container nav-inner">
+            <a class="brand" href="#home" aria-label="Eighty Eight Hotel home">
+                Eighty Eight Hotel
+                <span>Koronadal City</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contacts">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="hero-content reveal">
+                <span class="eyebrow">Luxury, comfort, and warm hospitality</span>
+                <h1>Eighty Eight Hotel</h1>
+                <p class="hero-copy">
+                    Experience refined comfort in the heart of Koronadal City, with elegant rooms,
+                    modern amenities, and service designed for business stays, leisure trips, and memorable events.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#rooms">Explore Rooms</a>
+                    <a class="btn btn-secondary" href="#contacts">Plan Your Stay</a>
+                </div>
+            </div>
+
+            <div class="hero-panel reveal" aria-label="Hotel highlights">
+                <div class="panel-item">
+                    <span class="panel-label">Location</span>
+                    <strong>Gensan Drive</strong>
+                    <p>Koronadal City, South Cotabato</p>
+                </div>
+                <div class="panel-item">
+                    <span class="panel-label">Stay</span>
+                    <strong>Elegant Rooms</strong>
+                    <p>Quiet comfort with modern essentials</p>
+                </div>
+                <div class="panel-item">
+                    <span class="panel-label">Gather</span>
+                    <strong>Events</strong>
+                    <p>Meetings, weddings, and special occasions</p>
+                </div>
+                <div class="panel-item">
+                    <span class="panel-label">Reserve</span>
+                    <strong>0969 617 5434</strong>
+                    <p>bookings@eightyeighthotel.com</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section section-alt" id="about">
+            <div class="container">
+                <div class="intro-grid">
+                    <div class="reveal">
+                        <div class="section-kicker">
+                            <span class="eyebrow">About Us</span>
+                        </div>
+                        <h2>A peaceful city escape with a polished sense of welcome.</h2>
+                        <p class="lead">
+                            Welcome to Eighty Eight Hotel, where luxury meets comfort. Located in the heart of
+                            Koronadal City, we are dedicated to providing exceptional hospitality, modern amenities,
+                            and a peaceful escape from the everyday.
+                        </p>
+                        <p class="lead">
+                            Whether you are traveling for business or pleasure, our personalized service, elegant rooms,
+                            and convenient location make every stay feel effortless.
+                        </p>
+                    </div>
+                    <div class="about-media reveal">
+                        <img src="https://scontent.fmnl17-5.fna.fbcdn.net/v/t1.6435-9/56140530_2337816966458707_2062747903209766912_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1363&ctp=s2048x1363&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFp3XAsj-HHKqoSU9sxJF_UTH7A9UmnQ_1MfsD1SadD_dqBu3ZicjJ1K-BuFkr21eKKLy9mmr-EhgfVzUDNxgRX&_nc_ohc=K1xu7jJUfckQ7kNvwHOdFXC&_nc_oc=Adq1f-LwHqN8Y03YpOFKMoLRY_Layy_YERDIIGRLiKXLxai-ce63BLDGFXBL2wH-6yQ&_nc_zt=23&_nc_ht=scontent.fmnl17-5.fna&_nc_gid=e5ikh3OCQa_GvROmS4RQOg&_nc_ss=7b2a8&oh=00_Af9YM7-7H2U7fZD2acFVQRd3qmTG0GLU93u3Bbhj_q_3-Q&oe=6A50AC3B" alt="Elegant hotel lobby lounge">
+                        <img src="https://scontent.fmnl17-1.fna.fbcdn.net/v/t39.30808-6/480423117_1063740925794915_6039823495459959145_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1363&ctp=s2048x1363&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFUgQHXaVrIqgq5iwP1bWew-Q6d1F8tevn5Dp3UXy16-U4fHar7HZhBmWNPm94WB6Uebza7BpGoE4liq4LADhkP&_nc_ohc=ICjOjNy3KeoQ7kNvwG3CeO-&_nc_oc=Adq0pBeC5K9jgmDlMEtxWi85HkqUWVB7YMxntRsXekTbn6iwVBTg-iVKLbC8L25QizY&_nc_zt=23&_nc_ht=scontent.fmnl17-1.fna&_nc_gid=3qVyT2EYsaCajOSWyCYi0A&_nc_ss=7b2a8&oh=00_Af9AYK6GDrylVl07EuukvW557OmJI7baia3TdQ-44l9l-A&oe=6A2F017D" alt="Premium hotel guest room">
+                    </div>
+                </div>
+
+                <div class="stats reveal">
+                    <div class="stat">
+                        <strong>88</strong>
+                        <span>Hotel Signature</span>
+                    </div>
+                    <div class="stat">
+                        <strong>24/7</strong>
+                        <span>Guest Assistance</span>
+                    </div>
+                    <div class="stat">
+                        <strong>2</strong>
+                        <span>Core Experiences</span>
+                    </div>
+                    <div class="stat">
+                        <strong>9506</strong>
+                        <span>Koronadal City</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="rooms">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="section-kicker">
+                            <span class="eyebrow">Our Rooms</span>
+                        </div>
+                        <h2>Restful spaces designed for comfort and ease.</h2>
+                    </div>
+                    <p>
+                        Choose from relaxing room options with modern amenities, soothing details, and the calm ambiance
+                        guests expect from a premium city hotel.
+                    </p>
+                </div>
+
+                <div class="room-grid">
+                    <article class="room-card reveal">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1000&q=85" alt="Deluxe hotel room with warm lighting">
+                        <div class="room-body">
+                            <span class="eyebrow">Relaxed Comfort</span>
+                            <h3>Deluxe Room</h3>
+                            <p>Elegantly furnished rooms for peaceful rest after a full day in Koronadal City.</p>
+                            <div class="room-meta">
+                                <span class="pill">Modern Bath</span>
+                                <span class="pill">Work Desk</span>
+                                <span class="pill">Premium Bedding</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="room-card reveal">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=85" alt="Spacious suite with luxury bed and lounge area">
+                        <div class="room-body">
+                            <span class="eyebrow">Extra Space</span>
+                            <h3>Executive Room</h3>
+                            <p>A refined stay for business travelers who want comfort, focus, and convenience.</p>
+                            <div class="room-meta">
+                                <span class="pill">Lounge Area</span>
+                                <span class="pill">City Access</span>
+                                <span class="pill">Quiet Setting</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="room-card reveal">
+                        <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1000&q=85" alt="Twin hotel room with soft neutral design">
+                        <div class="room-body">
+                            <span class="eyebrow">Shared Stay</span>
+                            <h3>Twin Room</h3>
+                            <p>Ideal for colleagues, families, and friends looking for a polished, comfortable stay.</p>
+                            <div class="room-meta">
+                                <span class="pill">Twin Beds</span>
+                                <span class="pill">Smart Layout</span>
+                                <span class="pill">Daily Comfort</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="facilities">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="section-kicker">
+                            <span class="eyebrow">Facilities & Services</span>
+                        </div>
+                        <h2>Everything essential, delivered with care.</h2>
+                    </div>
+                    <p>
+                        Our guests enjoy services and amenities that support both restful stays and special gatherings.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature reveal">
+                        <div class="feature-icon" aria-hidden="true">01</div>
+                        <h3>Spacious Rooms</h3>
+                        <p>Elegantly furnished rooms created for relaxation, privacy, and a smooth guest experience.</p>
+                    </article>
+                    <article class="feature reveal">
+                        <div class="feature-icon" aria-hidden="true">02</div>
+                        <h3>Event Spaces</h3>
+                        <p>Beautiful venues for weddings, meetings, seminars, and meaningful celebrations.</p>
+                    </article>
+                    <article class="feature reveal">
+                        <div class="feature-icon" aria-hidden="true">03</div>
+                        <h3>Prime Location</h3>
+                        <p>Conveniently situated on Gensan Drive for easy access around Koronadal City.</p>
+                    </article>
+                    <article class="feature reveal">
+                        <div class="feature-icon" aria-hidden="true">04</div>
+                        <h3>Personal Service</h3>
+                        <p>Warm, attentive hospitality that helps make business and leisure stays feel effortless.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section events" id="events">
+            <div class="container event-layout">
+                <div class="reveal">
+                    <div class="section-kicker">
+                        <span class="eyebrow">Meeting & Events</span>
+                    </div>
+                    <h2>Elegant venues for milestones and focused meetings.</h2>
+                    <p class="lead">
+                        Eighty Eight Hotel offers event spaces for corporate seminars, wedding receptions, and special
+                        occasions, supported by high-quality service and careful attention to detail.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#contacts">Request Event Details</a>
+                    </div>
+                </div>
+
+                <div class="event-list">
+                    <article class="event-item reveal">
+                        <h3>Corporate Meetings</h3>
+                        <p>Professional settings for briefings, seminars, and business gatherings.</p>
+                    </article>
+                    <article class="event-item reveal">
+                        <h3>Weddings & Receptions</h3>
+                        <p>Warm, elegant spaces for meaningful celebrations with family and guests.</p>
+                    </article>
+                    <article class="event-item reveal">
+                        <h3>Private Occasions</h3>
+                        <p>Flexible venues for birthdays, reunions, launches, and intimate events.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="gallery">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="section-kicker">
+                            <span class="eyebrow">Gallery</span>
+                        </div>
+                        <h2>A visual preview of your stay.</h2>
+                    </div>
+                    <p>
+                        Placeholder photography is arranged to feel like a premium hospitality editorial gallery.
+                        Replace these images later with your actual hotel rooms, lobby, facade, and event halls.
+                    </p>
+                </div>
+
+                <div class="gallery-grid reveal">
+                    <img src="https://scontent.fmnl17-5.fna.fbcdn.net/v/t39.30808-6/504106861_4146467872260265_1643209642185169611_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1365&ctp=s2048x1365&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHTlFqGmNPkUDUzFyw-SAVdz1S5ELCXX9DPVLkQsJdf0G6Akb6e0s7wiwIGVcOlirvGAP_ZVzAQV5yIkkoDyW4F&_nc_ohc=nx92GV4_674Q7kNvwGYUTmq&_nc_oc=Adq_8eut6T_6J_OJG2xjX_qWExlKLSSrpndhyq8Vk6q5yXV_XcB5C4yBB_VMf4Vlt4g&_nc_zt=23&_nc_ht=scontent.fmnl17-5.fna&_nc_gid=nDikc_c6YfOBvm4o8j9JQA&_nc_ss=7b2a8&oh=00_Af_IOMcqPLaMqn7YYCw93Kf6djO2EcnxprDhpUoUQBdcJQ&oe=6A2F140D" alt="Luxury hotel exterior and pool" class="gallery-image">
+                    <img src="https://scontent.fmnl17-3.fna.fbcdn.net/v/t39.30808-6/482192083_1074949258007415_5624448886735766216_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1080x1440&ctp=s1080x1440&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEabGccvR38NDSGWJEaXY-DWAPr2KpFiKRYA-vYqkWIpDXnK-WoMBIpnlkFe_PJqm-YFMhgDHHYH57Ir-Q-oVuV&_nc_ohc=LmzygdliomIQ7kNvwHRMY-V&_nc_oc=AdqCDkyWIwwLshbTuPu1S-LmTu1JWT7f_WhtgFfqF-RBUT7Ib56S_x3MILhiBpRJ68s&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_gid=JPycWJNZMNbvDwVxyWQziA&_nc_ss=7b2a8&oh=00_Af852FNEh1qD6sp47p6U8LhkFelRAvpXVckNWPAilemONw&oe=6A2EF091" alt="Modern hotel bedroom" class="gallery-image">
+                    <img src="https://scontent.fmnl17-7.fna.fbcdn.net/v/t1.6435-9/37973549_2179226108984461_2873112943820537856_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s1536x2048&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGYY2yVXGlKxZLmhx6M_9XLDuxKFgYrhAoO7EoWBiuECsVh2oy7ID316xxU7bkCAys9Ptuaa2DrOvZ4dgTOr5tz&_nc_ohc=nBFBwM7kp4gQ7kNvwH-I8Ds&_nc_oc=AdrnKX8b0098m5EC2WxOk2D7o7d8cN2kI2GQcPKtw9MwSqOARfDuvdvG7O1m4DyHJhw&_nc_zt=23&_nc_ht=scontent.fmnl17-7.fna&_nc_gid=BxM7W6RDOVVRJCzU3jbjnw&_nc_ss=7b2a8&oh=00_Af-KO1GR_S5zatQxY2b7bd19V5zru3gg_afm2NFIwOdEnQ&oe=6A5095E3" alt="Bright hotel room with large bed" class="gallery-image">
+                    <img src="https://scontent.fmnl17-8.fna.fbcdn.net/v/t1.6435-9/55614116_2337074276532976_8706354207453609984_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1363&ctp=s2048x1363&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEDCMo36oGTsGnXvztTCIt1Nh_FV6-rgCY2H8VXr6uAJjgh6KC9ySXkvIqn4Rk8_kBs6jRa590R2b0YMAfpXi_S&_nc_ohc=1ZcTfZW7CCUQ7kNvwGGUobx&_nc_oc=AdqPLUGMgsc6oSUMSQ1MPB9isVYp8eALfYGp0NmwWPPn6PIFmVTCRcQUKNt70-JGSN4&_nc_zt=23&_nc_ht=scontent.fmnl17-8.fna&_nc_gid=TqfZezzPMLYiBzNZGEtb1w&_nc_ss=7b2a8&oh=00_Af9ORIPH7HhCEtixK-sdI2ZINLmbz5KaKfzMFkeUdd79nA&oe=6A509CC3" alt="Hotel lobby seating area" class="gallery-image">
+                    <img src="https://scontent.fmnl17-6.fna.fbcdn.net/v/t39.30808-6/505439751_4151607398412979_7880550036638816166_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1536&ctp=s2048x1536&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEqWJ3o-OHIwnwnXPdNt4vaipek-WHiTquKl6T5YeJOqxoehyZQ2Pzc_Upxj9KfWXSdRwXe2lAkINMpnqMNO07w&_nc_ohc=KG81VBaFpPMQ7kNvwFGDrUZ&_nc_oc=AdpIs5Ebe7vYkI3JxowAdUuJYS3e06FunmcVrAdqgJNPKNw5WVZCrqLEPfnthpAujjo&_nc_zt=23&_nc_ht=scontent.fmnl17-6.fna&_nc_gid=O1OCYr0BAflY3TZYLpi4Ng&_nc_ss=7b2a8&oh=00_Af9Ug4zZgQg2LlLHBX09Yb9mi4atSuaqBchJ637mW43ezg&oe=6A2EE5BB" alt="Comfortable premium bedroom" class="gallery-image">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=85" alt="Elegant event hall with banquet seating" class="gallery-image">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contacts">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="section-kicker">
+                            <span class="eyebrow">Contact Us</span>
+                        </div>
+                        <h2>Start planning your stay in Koronadal City.</h2>
+                    </div>
+                    <p>
+                        Reach out for room inquiries, bookings, meetings, and event reservations.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-card reveal">
+                        <div class="contact-detail">
+                            <span>Address</span>
+                            <p>Gensan Dr, Koronadal City, 9506 South Cotabato</p>
+                        </div>
+                        <div class="contact-detail">
+                            <span>Phone Number</span>
+                            <a href="tel:+639696175434">0969 617 5434</a>
+                        </div>
+                        <div class="contact-detail">
+                            <span>Email</span>
+                            <a href="mailto:bookings@eightyeighthotel.com">bookings@eightyeighthotel.com</a>
+                        </div>
+                        <a class="btn btn-primary" href="mailto:bookings@eightyeighthotel.com">Email Reservations</a>
+                    </div>
+
+                    <div class="map-card reveal">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13229.919530222276!2d124.98108762432328!3d6.470698708491587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32b5602a3b116cb5%3A0x987b1f93a5d416f9!2s601%20Gensan%20Dr%2C%20Koronadal%20City%2C%20South%20Cotabato!5e0!3m2!1sen!2sph!4v1675690618629!5m2!1sen!2sph"
+                            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Eighty Eight Hotel"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <span class="eyebrow">Eighty Eight Hotel</span>
+                    <h2>Comfort, events, and hospitality in one refined address.</h2>
+                </div>
+                <a class="btn btn-secondary" href="#home">Back to Top</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright 2026 Eighty Eight Hotel. All rights reserved.</p>
+                <p>Gensan Dr, Koronadal City, 9506 South Cotabato</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" aria-hidden="true">
+        <img src="" alt="Expanded gallery image">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const nav = document.querySelector(".site-nav");
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+            const revealElements = document.querySelectorAll(".reveal");
+            const modal = document.querySelector(".modal");
+            const modalImg = modal.querySelector("img");
+            const galleryImages = document.querySelectorAll(".gallery-image, .room-card img");
+
+            function updateNavState() {
+                nav.classList.toggle("scrolled", window.scrollY > 24);
+            }
+
+            updateNavState();
+            window.addEventListener("scroll", updateNavState, { passive: true });
+
+            menuToggle.addEventListener("click", function () {
+                const isOpen = navLinks.classList.toggle("active");
+                menuToggle.classList.toggle("active", isOpen);
+                menuToggle.setAttribute("aria-expanded", String(isOpen));
+                nav.classList.toggle("nav-open", isOpen);
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+                link.addEventListener("click", function (event) {
+                    const target = document.querySelector(link.getAttribute("href"));
+
+                    if (!target) return;
+                    event.preventDefault();
+                    navLinks.classList.remove("active");
+                    menuToggle.classList.remove("active");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    nav.classList.remove("nav-open");
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
+            });
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.16,
+                rootMargin: "0px 0px -40px 0px"
+            });
+
+            revealElements.forEach(function (element) {
+                observer.observe(element);
+            });
+
+            galleryImages.forEach(function (image) {
+                image.addEventListener("click", function () {
+                    modalImg.src = image.src;
+                    modalImg.alt = image.alt;
+                    modal.classList.add("active");
+                    modal.setAttribute("aria-hidden", "false");
+                });
+            });
+
+            modal.addEventListener("click", function () {
+                modal.classList.remove("active");
+                modal.setAttribute("aria-hidden", "true");
+                modalImg.src = "";
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape" && modal.classList.contains("active")) {
+                    modal.classList.remove("active");
+                    modal.setAttribute("aria-hidden", "true");
+                    modalImg.src = "";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
